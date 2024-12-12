@@ -1,13 +1,25 @@
 import { Component } from 'react';
 import { ContactValidation } from './ContactValidation/ContactValidation';
+import { Formika } from './ContactValidation/Formik/Formika';
+
+import { nanoid } from 'nanoid';
 
 class App extends Component {
-  state = {};
+  state = {
+    contacts: [],
+    name: '',
+  };
+
+  test = () => {
+    const iddd = nanoid();
+    console.log(iddd);
+  };
 
   render() {
     return (
       <>
-        <ContactValidation />
+        <Formika />
+        {/* <ContactValidation /> */}
       </>
     );
   }
