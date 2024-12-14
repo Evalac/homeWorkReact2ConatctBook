@@ -1,21 +1,30 @@
-function Formika() {
-  const onSubmit = e => {
-    e.preventDefault();
-    console.log(e.currentTarget);
-  };
+import { Formik, Form, Field } from 'formik';
+import css from './formik.module.css';
 
+const initialValue = {
+  login: '',
+  password: '',
+};
+
+function Formika() {
+  const handleSubmit = (values, actions) => {
+    console.log(values);
+    actions.resetForm();
+  };
   return (
-    <form autoComplete="off" onSubmit={onSubmit}>
-      <label htmlFor="login">
-        Login:
-        <input type="text" name="login" />
-      </label>
-      <label htmlFor="password">
-        Paswword:
-        <input type="password" name="password" />
-      </label>
-      <button type="submit">Submit</button>
-    </form>
+    <Formik initialValues={initialValue} onSubmit={handleSubmit}>
+      <Form autoComplete="off">
+        <label htmlFor="login">
+          Login:
+          <Field type="text" name="login" className={css.inputCell} />
+        </label>
+        <label htmlFor="password">
+          Paswword:
+          <Field type="password" name="password" className={css.inputCell} />
+        </label>
+        <button type="submit">Submit</button>
+      </Form>
+    </Formik>
   );
 }
 
