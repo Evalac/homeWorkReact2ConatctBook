@@ -1,6 +1,7 @@
 import { Component } from 'react';
 import { ContactValidation } from './ContactValidation/ContactValidation';
 import { Formika } from './ContactValidation/Formik/Formika';
+import { FormikNext } from './ContactValidation/FormikNext/FormixNext';
 
 import { nanoid } from 'nanoid';
 
@@ -18,7 +19,8 @@ class App extends Component {
   render() {
     return (
       <>
-        <Formika />
+        {/* <Formika /> */}
+        <FormikNext />
         {/* <ContactValidation /> */}
       </>
     );
