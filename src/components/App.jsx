@@ -16,12 +16,14 @@ class App extends Component {
     console.log(iddd);
   };
 
+  addContact = () => {};
+
   render() {
     return (
       <>
         {/* <Formika /> */}
-        <FormikNext />
-        {/* <ContactValidation /> */}
+        {/* <FormikNext /> */}
+        <ContactValidation initialValue={this.state} />
       </>
     );
   }
