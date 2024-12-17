@@ -56,6 +56,10 @@ class ContactValidation extends Component {
           </label>
           <button type="submit">Add contact</button>
         </form>
+        <label htmlFor="">
+          Find contact by name
+          <input type="text" />
+        </label>
         <h1>Contact</h1>
         <ul>
           {this.props.initialValue.contacts.map(contact => {

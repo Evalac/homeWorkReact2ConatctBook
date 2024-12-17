@@ -1,7 +1,7 @@
 import { Component } from 'react';
-import { ContactValidation } from './ContactValidation/ContactValidation';
-import { Formika } from './ContactValidation/Formik/Formika';
-import { FormikNext } from './ContactValidation/FormikNext/FormixNext';
+import { ContactValidation } from './ContactBook/AddContact/ContactValidation';
+import { Formika } from './ContactBook/Formik/Formika';
+import { FormikNext } from './ContactBook/FormikNext/FormixNext';
 
 import { nanoid } from 'nanoid';
 
@@ -26,14 +26,21 @@ class App extends Component {
     }));
   };
 
+  filterContact = e => {
+    this.setState({ filter: e.currentTarget.value });
+  };
+
   render() {
     return (
       <>
         {/* <Formika /> */}
         {/* <FormikNext /> */}
+
         <ContactValidation
           initialValue={this.state}
           addContact={this.addContact}
+          filterChange={this.filterContact}
+          filter={this.state.filter}
         />
       </>
     );
