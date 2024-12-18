@@ -62,13 +62,6 @@ class App extends Component {
           />
           <ContactList initialValue={filteredContact} />
         </div>
-
-        {/* <ContactValidation
-          initialValue={filteredContact}
-          addContact={this.addContact}
-          filterChange={this.filterContact}
-          value={this.state.filter}
-        /> */}
       </>
     );
   }

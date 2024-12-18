@@ -3,10 +3,8 @@ import { nanoid } from 'nanoid';
 
 class ContactForm extends Component {
   state = {
-    id: '',
     name: '',
     number: '',
-    filter: '',
   };
 
   onChange = e => {
@@ -18,10 +16,17 @@ class ContactForm extends Component {
   };
 
   onSubmit = e => {
-    console.log('submit');
     e.preventDefault();
-    this.props.addContact(this.state);
-    this.setState({ id: '', name: '', number: '' });
+    const result = this.props.initialValue.some(
+      ({ name }) => name === this.state.name
+    );
+
+    if (result) {
+      alert('ЗЕЛЯ ПІДОР');
+    } else {
+      this.props.addContact(this.state);
+      this.setState({ id: '', name: '', number: '' });
+    }
   };
 
   render() {
