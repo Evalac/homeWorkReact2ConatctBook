@@ -1,7 +1,10 @@
 import { Component } from 'react';
-import { ContactValidation } from './ContactBook/AddContact/ContactValidation';
-import { Formika } from './ContactBook/Formik/Formika';
-import { FormikNext } from './ContactBook/FormikNext/FormixNext';
+import { Formika } from './Formik/Formika';
+import { FormikNext } from './FormikNext/FormixNext';
+
+import { ContactForm } from './ContactBook/ContactForm/ContactForm';
+import { ContactFilter } from './ContactBook/ContactFilter/ConatctFilter';
+import { ContactList } from './ContactBook/ContactList/ContactList';
 
 import { nanoid } from 'nanoid';
 
@@ -18,7 +21,13 @@ class App extends Component {
     number: '',
   };
 
-  test = () => {};
+  onChange = e => {
+    this.setState({
+      id: nanoid(),
+      [e.currentTarget.name]: e.currentTarget.value, //вичисляємі значення
+      [e.currentTarget.name]: e.currentTarget.value,
+    });
+  };
 
   addContact = newContact => {
     this.setState(prevState => ({
@@ -40,13 +49,26 @@ class App extends Component {
       <>
         {/* <Formika /> */}
         {/* <FormikNext /> */}
+        <div>
+          <h1>Phonebook</h1>
+          <ContactForm
+            addContact={this.addContact}
+            initialValue={filteredContact}
+          />
+          <h1>Contact</h1>
+          <ContactFilter
+            filterChange={this.filterContact}
+            value={this.state.filter}
+          />
+          <ContactList initialValue={filteredContact} />
+        </div>
 
-        <ContactValidation
+        {/* <ContactValidation
           initialValue={filteredContact}
           addContact={this.addContact}
           filterChange={this.filterContact}
           value={this.state.filter}
-        />
+        /> */}
       </>
     );
   }
