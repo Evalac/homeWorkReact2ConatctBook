@@ -31,16 +31,21 @@ class App extends Component {
   };
 
   render() {
+    const filteredContact = this.state.contacts.filter(contact =>
+      contact.name.toLowerCase().includes(this.state.filter.toLowerCase())
+    );
+    console.log(filteredContact);
+
     return (
       <>
         {/* <Formika /> */}
         {/* <FormikNext /> */}
 
         <ContactValidation
-          initialValue={this.state}
+          initialValue={filteredContact}
           addContact={this.addContact}
           filterChange={this.filterContact}
-          filter={this.state.filter}
+          value={this.state.filter}
         />
       </>
     );

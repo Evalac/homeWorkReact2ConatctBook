@@ -9,6 +9,7 @@ class ContactValidation extends Component {
     id: '',
     name: '',
     number: '',
+    filter: '',
   };
 
   onChange = e => {
@@ -58,11 +59,16 @@ class ContactValidation extends Component {
         </form>
         <label htmlFor="">
           Find contact by name
-          <input type="text" />
+          <input
+            type="text"
+            name="filter"
+            onChange={this.props.filterChange}
+            value={this.props.value}
+          />
         </label>
         <h1>Contact</h1>
         <ul>
-          {this.props.initialValue.contacts.map(contact => {
+          {this.props.initialValue.map(contact => {
             return (
               <li key={nanoid()} className={css.contactItem}>
                 <p>{contact.name}:</p>
