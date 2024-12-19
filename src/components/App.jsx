@@ -6,6 +6,8 @@ import { ContactForm } from './ContactBook/ContactForm/ContactForm';
 import { ContactFilter } from './ContactBook/ContactFilter/ConatctFilter';
 import { ContactList } from './ContactBook/ContactList/ContactList';
 
+import css from './App.module.css';
+
 import { nanoid } from 'nanoid';
 
 class App extends Component {
@@ -54,7 +56,7 @@ class App extends Component {
       <>
         {/* <Formika /> */}
         {/* <FormikNext /> */}
-        <div>
+        <div className={css.container}>
           <h1>Phonebook</h1>
           <ContactForm
             addContact={this.addContact}
