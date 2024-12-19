@@ -11,6 +11,12 @@ class ContactList extends Component {
             <li key={nanoid()} className={css.contactItem}>
               <p>{contact.name}:</p>
               <p>{contact.number}</p>
+              <button
+                type="button"
+                onClick={() => this.props.onDeleteContact(contact.id)}
+              >
+                delete
+              </button>
             </li>
           );
         })}

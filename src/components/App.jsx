@@ -39,11 +39,16 @@ class App extends Component {
     this.setState({ filter: e.currentTarget.value });
   };
 
+  deleteContact = id => {
+    this.setState(prevState => ({
+      contacts: prevState.contacts.filter(contact => contact.id !== id),
+    }));
+  };
+
   render() {
     const filteredContact = this.state.contacts.filter(contact =>
       contact.name.toLowerCase().includes(this.state.filter.toLowerCase())
     );
-    console.log(filteredContact);
 
     return (
       <>
@@ -60,7 +65,10 @@ class App extends Component {
             filterChange={this.filterContact}
             value={this.state.filter}
           />
-          <ContactList initialValue={filteredContact} />
+          <ContactList
+            initialValue={filteredContact}
+            onDeleteContact={this.deleteContact}
+          />
         </div>
       </>
     );
