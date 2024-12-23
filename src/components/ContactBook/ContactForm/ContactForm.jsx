@@ -23,7 +23,7 @@ class ContactForm extends Component {
     );
 
     if (result) {
-      alert('ЗЕЛЯ ПІДОР');
+      alert('Contact alredy exists');
     } else {
       this.props.addContact(this.state);
       this.setState({ id: '', name: '', number: '' });
