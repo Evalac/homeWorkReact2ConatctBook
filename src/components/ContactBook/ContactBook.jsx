@@ -21,6 +21,20 @@ class ContactBook extends Component {
     number: '',
   };
 
+  componentDidMount() {
+    const contact = JSON.parse(localStorage.getItem('contact'));
+
+    if (contact) {
+      this.setState({ contacts: contact });
+    }
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (this.state.contacts !== prevState) {
+      localStorage.setItem('contact', JSON.stringify(this.state.contacts));
+    }
+  }
+
   onChange = e => {
     this.setState({
       id: nanoid(),
